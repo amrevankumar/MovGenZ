@@ -46,6 +46,25 @@ def upload_directory(ftp, local_dir, remote_dir):
             with open(local_file, "rb") as fp:
                 ftp.storbinary(f"STOR {f}", fp)
 
+def find_remote_dir(ftp, domain):
+    try:
+        items = ftp.nlst()
+    except Exception:
+        items = []
+
+    print(f"Remote root contents: {items}")
+    # Match domain case-insensitively
+    for item in items:
+        if item.lower() == domain.lower():
+            return f"{item}/htdocs"
+
+    if "htdocs" in [i.lower() for i in items]:
+        for item in items:
+            if item.lower() == "htdocs":
+                return item
+
+    return f"{domain}/htdocs"
+
 def main():
     if len(sys.argv) > 1:
         password = sys.argv[1]
@@ -59,16 +78,21 @@ def main():
     print(f"Connecting to FTP {FTP_HOST} as {FTP_USER}...")
     try:
         ftp = FTP(FTP_HOST, timeout=30)
-    except Exception:
-        print("Falling back to IP 185.27.134.176...")
+    except Exception as e:
+        print(f"Direct host connection failed ({e}), falling back to 185.27.134.176...")
         ftp = FTP("185.27.134.176", timeout=30)
 
+    ftp.set_pasv(True)
     ftp.login(user=FTP_USER, passwd=password)
     print("Logged in successfully!")
 
-    upload_directory(ftp, LOCAL_DIR, REMOTE_TARGET)
+    target_dir = find_remote_dir(ftp, "movgenz.site.je")
+    print(f"Resolved remote target: {target_dir}")
+
+    upload_directory(ftp, LOCAL_DIR, target_dir)
     ftp.quit()
     print("\n✅ Deployment complete! Your site is live at http://movgenz.site.je/")
+
 
 if __name__ == "__main__":
     main()
