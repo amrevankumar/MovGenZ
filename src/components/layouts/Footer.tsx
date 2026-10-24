@@ -22,15 +22,20 @@ export default function Footer() {
           "::before, ::after": { top: "0%" },
         }}
       >
-        <Typography color="grey.700" variant="h6" component="span">
-          Developed by{" "}
+        <Typography color="grey.600" variant="body1" component="span">
+          Made with ❤️ by{" "}
           <Link
             target="_blank"
             underline="none"
-            sx={{ color: "text.primary" }}
-            href="https://github.com/crazy-man22"
+            sx={{
+              color: "text.primary",
+              fontWeight: 600,
+              transition: "color 0.2s ease",
+              "&:hover": { color: "#E50914" },
+            }}
+            href="https://github.com/amrevankumar"
           >
-            Crazy Man
+            Revan Kumar Namala
           </Link>
         </Typography>
       </Divider>

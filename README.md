@@ -1,16 +1,14 @@
 <div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
-    <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
-  </a>
+  <h1 align="center" style="color: #E50914;">MovGenZ</h1>
 
-  <h3 align="center">Netflix Clone</h3>
+  <h3 align="center">Modern Movie & TV Discovery Platform</h3>
 
   <p align="center">
-    <a href="https://netflix-clone-react-typescript.vercel.app/">View Demo</a>
+    <a href="http://movgenz.site.je/">View Live</a>
     ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Report Bug</a>
+    <a href="https://github.com/amrevankumar/MovGenZ/issues">Report Bug</a>
     ·
-    <a href="https://github.com/crazy-man22/netflix-clone-react-typescript/issues">Request Feature</a>
+    <a href="https://github.com/amrevankumar/MovGenZ/issues">Request Feature</a>
   </p>
 </div>
 

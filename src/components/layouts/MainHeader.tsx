@@ -106,12 +106,15 @@ const MainHeader = () => {
             mr: 2,
             display: { xs: "flex", md: "none" },
             flexGrow: 1,
-            fontWeight: 700,
-            color: "inherit",
+            fontFamily: "'Bebas Neue', 'Impact', sans-serif",
+            fontSize: 26,
+            letterSpacing: 2,
+            fontWeight: 900,
+            color: "#E50914",
             textDecoration: "none",
           }}
         >
-          Netflix
+          MovGenZ
         </Typography>
         <Stack
           direction="row"
